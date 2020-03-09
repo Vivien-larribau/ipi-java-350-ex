@@ -44,7 +44,10 @@ public class Employe {
     }
 
     public Integer getNombreAnneeAnciennete() {
-        return LocalDate.now().getYear() - dateEmbauche.getYear();
+        if(dateEmbauche != null && dateEmbauche.isBefore(LocalDate.now())){
+            return LocalDate.now().getYear() - dateEmbauche.getYear();
+        }
+        return 0;
     }
 
     public Integer getNbConges() {
@@ -98,7 +101,7 @@ public class Employe {
             prime = Entreprise.primeAnnuelleBase() * (this.performance + Entreprise.INDICE_PRIME_BASE) + primeAnciennete;
         }
         //Au pro rata du temps partiel.
-        return prime * this.tempsPartiel;
+        return Math.round(prime * this.tempsPartiel * 100)/100.0;
     }
 
     //Augmenter salaire
