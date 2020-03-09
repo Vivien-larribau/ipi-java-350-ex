@@ -1,6 +1,7 @@
-package repository;
+package com.ipiecoles.java.java350.repository;
 
 import com.ipiecoles.java.java350.repository.EmployeRepository;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,4 +17,13 @@ public class EmployeRepositoryTest {
 
 
     // testing //
+
+    @Test
+    public void testFindLastMatricule() {
+        //Given
+
+        //When
+
+        //Then
+    }
 }
