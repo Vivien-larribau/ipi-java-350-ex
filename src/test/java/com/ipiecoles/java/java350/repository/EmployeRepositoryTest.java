@@ -2,6 +2,7 @@ package com.ipiecoles.java.java350.repository;
 
 import com.ipiecoles.java.java350.Employe;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,15 @@ public class EmployeRepositoryTest {
     @Autowired
     EmployeRepository employeRepository;
 
-
+    @BeforeEach
+    public void setup(){
+        employeRepository.deleteAll();
+    }
 
     // testing //
 
     @Test
-    public void testFindLastMatricule() {
+    public void testFindLastMatriculeZ() {
         //Given
 
         //When
@@ -33,7 +37,7 @@ public class EmployeRepositoryTest {
     }
 
     @Test
-    public void testFindLastMatricule2employes() {
+    public void testFindLastMatriculeA() {
         //Given
         Employe employe1 = new Employe("doe","Jhon","M12345", LocalDate.now(),1500d,1,1.0);
         Employe employe2 = new Employe("doe","Jhon","M66666", LocalDate.now(),1500d,1,1.0);
