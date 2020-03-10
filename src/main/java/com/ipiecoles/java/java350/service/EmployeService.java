@@ -1,11 +1,13 @@
 package com.ipiecoles.java.java350.service;
 
 import com.ipiecoles.java.java350.exception.EmployeException;
-import com.ipiecoles.java.java350.Employe;
-import com.ipiecoles.java.java350.Entreprise;
-import com.ipiecoles.java.java350.NiveauEtude;
-import com.ipiecoles.java.java350.Poste;
+import com.ipiecoles.java.java350.model.Employe;
+import com.ipiecoles.java.java350.model.Entreprise;
+import com.ipiecoles.java.java350.model.NiveauEtude;
+import com.ipiecoles.java.java350.model.Poste;
 import com.ipiecoles.java.java350.repository.EmployeRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,8 @@ public class EmployeService {
 
     @Autowired
     private EmployeRepository employeRepository;
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * Méthode enregistrant un nouvel employé dans l'entreprise
