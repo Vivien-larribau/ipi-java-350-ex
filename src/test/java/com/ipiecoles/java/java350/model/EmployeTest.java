@@ -90,4 +90,60 @@ public class EmployeTest {
         Assertions.assertThat(primeAnnuelle).isEqualTo(prime);
 
     }
+
+    //Augmenter salaire avec un salaire de 0
+    @Test
+    public void testAugmenterSalaire0d() {
+        //Given
+        Employe employe = new Employe();
+        employe.setSalaire(0d);
+
+        //When
+        employe.augmenterSalaire(0.2);
+
+        //Then
+        Assertions.assertThat(employe.getSalaire()).isEqualTo(0);
+    }
+
+    //Augmenter salaire null en augmentant de 0.1
+    @Test
+    public void testAugmenterSalaireNulld() {
+        //Given
+        Employe employe = new Employe();
+        employe.setSalaire(null);
+
+        //When
+        employe.augmenterSalaire(0.1);
+
+        //Then
+        Assertions.assertThat(employe.getSalaire()).isEqualTo(null);
+    }
+
+    //Augmenter salaire N en augmentant de 0.0
+    @Test
+    public void testAugmenterSalaireNd() {
+        //Given
+        Employe employe = new Employe();
+        employe.setSalaire(1000d);
+
+        //When
+        employe.augmenterSalaire(0.0);
+
+        //Then
+        Assertions.assertThat(employe.getSalaire()).isEqualTo(1000d);
+    }
+
+    //Augmenter salaire cas nominal
+    @Test
+    public void testAugmenterSalaireNominal() {
+        //Given
+        Employe employe = new Employe();
+        employe.setSalaire(1500d);
+
+        //When
+        employe.augmenterSalaire(0.9);
+
+        //Then
+        Assertions.assertThat(employe.getSalaire()).isEqualTo(2850d);
+    }
 }
